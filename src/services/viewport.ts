@@ -5,7 +5,8 @@ import SkinDTO from 'types/SkinDTO';
  * Returns the path to the folder with the skin resources.
  * @param skin Skin.
  */
-export const getSkinPath = (skin: SkinDTO) => `/skins/${skin.id}`;
+export const getSkinPath = (skin: SkinDTO) =>
+  `${process.env.PUBLIC_URL}/skins/${skin.id}`;
 
 /**
  * Returns the path to the skin material.
