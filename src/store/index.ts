@@ -1,10 +1,10 @@
-import { createBrowserHistory } from 'history';
+import { createHashHistory } from 'history';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { createStore, applyMiddleware } from 'redux';
 import { routerMiddleware } from 'connected-react-router';
 import rootReducer, { AppState } from './rootReducer';
 
-export const history = createBrowserHistory();
+export const history = createHashHistory();
 
 export type AppStore = ReturnType<typeof configureStore>;
 
