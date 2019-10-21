@@ -17,15 +17,7 @@ const SkinPage: React.FC<Props> = ({ history, match, location }) => {
   const skin = useSelector<AppState, SkinDTO | undefined>(
     state => state.skins[match.params.id]
   );
-
-  const canBack = useSelector<AppState, boolean>(
-    state => !!state.router.location.key
-  );
-
-  const handleBack = useCallback(
-    () => (canBack ? history.goBack() : history.replace('/')),
-    [canBack, history]
-  );
+  const handleBack = useCallback(() => history.replace('/'), [history]);
 
   return skin ? (
     <Layout className="skin-page">
