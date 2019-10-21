@@ -1,0 +1,10 @@
+.skin-list-item {
+  &__avatar {
+    img {
+      object-fit: contain;
+      width: auto;
+      height: auto;
+      transform: translate(-15%, -1px);
+    }
+  }
+}

@@ -1,0 +1,17 @@
+@import 'static/styles/mixins.scss';
+
+.skin-page {
+  position: relative;
+  height: 100vh;
+
+  &__viewport {
+    height: 100%;
+    width: 100%;
+  }
+
+  &__info {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+  }
+}

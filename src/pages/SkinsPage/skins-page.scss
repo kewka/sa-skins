@@ -1,0 +1,11 @@
+@import 'static/styles/mixins.scss';
+
+.skins-page {
+  &__content {
+    padding: 0 16px;
+
+    @include mq($from: tablet) {
+      padding: 0 64px;
+    }
+  }
+}
