@@ -1,67 +1,48 @@
-import React, { useRef, useCallback, useEffect, useMemo } from 'react';
-import * as THREE from 'three';
+import React, { useCallback } from 'react';
+import { Layout } from 'antd';
 import { RouteComponentProps } from 'react-router';
+import { useSelector } from 'react-redux';
+import SkinDTO from 'types/SkinDTO';
+import Header from 'components/Header';
+import SkinViewport from 'components/SkinViewport';
+import SkinInfo from 'components/SkinInfo';
+import { AppState } from 'store/rootReducer';
+import NotFoundPage from 'pages/NotFoundPage';
 
-const CONTAINER_STYLE = { width: '100vw', height: '100vh' };
+import './skin-page.scss';
 
 type Props = RouteComponentProps<{ id: string }>;
 
-const SkinPage: React.FC<Props> = ({ match }) => {
-  const skinId = useMemo(() => Number(match.params.id), [match.params.id]);
-  const container = useRef<HTMLDivElement>(null);
-  const scene = useRef<THREE.Scene>();
-  const camera = useRef<THREE.PerspectiveCamera>();
-  const renderer = useRef<THREE.WebGLRenderer>();
-  const animateFrame = useRef<number>();
+const SkinPage: React.FC<Props> = ({ history, match, location }) => {
+  const skin = useSelector<AppState, SkinDTO | undefined>(
+    state => state.skins[match.params.id]
+  );
 
-  const setupScene = useCallback(() => {
-    if (container.current) {
-      const { clientWidth: width, clientHeight: height } = container.current;
-      scene.current = new THREE.Scene();
-      camera.current = new THREE.PerspectiveCamera(
-        75,
-        width / height,
-        0.1,
-        1000
-      );
-      camera.current.position.z = 3;
-      renderer.current = new THREE.WebGLRenderer();
-      renderer.current.setSize(width, height);
-      container.current.appendChild(renderer.current.domElement);
-    }
-  }, []);
+  const canBack = useSelector<AppState, boolean>(
+    state => !!state.router.location.key
+  );
 
-  const configureScene = useCallback(() => {}, []);
+  const handleBack = useCallback(
+    () => (canBack ? history.goBack() : history.replace('/')),
+    [canBack, history]
+  );
 
-  const animate = useCallback(() => {
-    if (renderer.current && scene.current && camera.current) {
-      renderer.current.render(scene.current, camera.current);
-      animateFrame.current = requestAnimationFrame(animate);
-    }
-  }, []);
-
-  useEffect(() => {
-    setupScene();
-    configureScene();
-    animate();
-  }, [animate, configureScene, setupScene]);
-
-  useEffect(() => {
-    function handleResize() {
-      if (container.current && renderer.current && camera.current) {
-        const { clientWidth: width, clientHeight: height } = container.current;
-        renderer.current.setSize(width, height);
-        camera.current.aspect = width / height;
-        camera.current.updateProjectionMatrix();
-      }
-    }
-
-    window.addEventListener('resize', handleResize);
-
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  return <div ref={container} style={CONTAINER_STYLE} />;
+  return skin ? (
+    <Layout className="skin-page">
+      <Header
+        onBack={handleBack}
+        title={`Skin ID: ${skin.id}`}
+        subTitle={skin.model}
+        className="skin-page__header"
+      />
+      <Layout.Content className="skin-page__content">
+        <SkinViewport className="skin-page__viewport" skin={skin} />
+        <SkinInfo className="skin-page__info" skin={skin} />
+      </Layout.Content>
+    </Layout>
+  ) : (
+    <NotFoundPage />
+  );
 };
 
 export default SkinPage;

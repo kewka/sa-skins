@@ -1,0 +1,10 @@
+// Media queries
+$mq-breakpoints: (
+  mobile: 480px,
+  tablet: 768px,
+  desktop-small: 1024px,
+  desktop-medium: 1280px,
+  desktop-large: 1440px
+);
+
+$header-z-index: 10;

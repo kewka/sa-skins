@@ -1,0 +1,6 @@
+[submodule "dff2obj"]
+	path = dff2obj
+	url = https://github.com/Kewka/dff2obj
+[submodule "txd2png"]
+	path = txd2png
+	url = https://github.com/Kewka/txd2png
