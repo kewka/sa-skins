@@ -17,8 +17,8 @@ The _src/data/skins.json_ file contains an array of [all skins](https://wiki.sa-
 
 ## Screenshots
 
-![](https://i.imgur.com/SVX7eSh.png)
-![](https://i.imgur.com/Fn6pGDg.png)
+![](docs/list.png)
+![](docs/view.png)
 
 ### Boilerplate
 

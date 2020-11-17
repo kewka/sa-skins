@@ -8,10 +8,4 @@ export default interface SkinDTO {
   image: string;
   /** Model file name. */
   model: string;
-  /** Type. */
-  type: string;
-  /** Location. */
-  location: string;
-  /** Gender. */
-  gender: 'Male' | 'Female';
 }
