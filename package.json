@@ -22,7 +22,7 @@
     "redux-devtools-extension": "^2.13.8",
     "reselect": "^4.0.0",
     "sass-mq": "^5.0.1",
-    "three": "^0.109.0",
+    "three": "^0.125.0",
     "typescript": "3.6.4"
   },
   "scripts": {
