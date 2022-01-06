@@ -1,6 +1,6 @@
 # SA Skins
 
-✨ [Open application](https://kewka.github.io/sa-skins/)
+✨ [Open application](https://sa-skins.netlify.app/)
 
 A simple web application for viewing skins from [GTA San Andreas](https://en.wikipedia.org/wiki/Grand_Theft_Auto:_San_Andreas) ([SA-MP](https://www.sa-mp.com/) & [MTA](https://multitheftauto.com/)).
 

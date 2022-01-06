@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next build && next export",
-    "deploy": "gh-pages -d out"
+    "export": "next build && next export"
   },
   "dependencies": {
     "@emotion/react": "^11.7.1",
@@ -27,7 +26,6 @@
     "eslint": "8.6.0",
     "eslint-config-next": "12.0.7",
     "eslint-plugin-prettier": "^4.0.0",
-    "gh-pages": "^3.2.3",
     "prettier": "^2.5.1",
     "typescript": "4.5.4"
   }
