@@ -1,0 +1,16 @@
+export const RASTER_DEFAULT = 0x0000;
+export const RASTER_1555 = 0x0100;
+export const RASTER_565 = 0x0200;
+export const RASTER_4444 = 0x0300;
+export const RASTER_LUM8 = 0x0400;
+export const RASTER_8888 = 0x0500;
+export const RASTER_888 = 0x0600;
+export const RASTER_16 = 0x0700;
+export const RASTER_24 = 0x0800;
+export const RASTER_32 = 0x0900;
+export const RASTER_555 = 0x0a00;
+export const RASTER_AUTOMIPMAP = 0x1000;
+export const RASTER_PAL8 = 0x2000;
+export const RASTER_PAL4 = 0x4000;
+export const RASTER_MIPMAP = 0x8000;
+export const RASTER_MASK = 0x0f0;
